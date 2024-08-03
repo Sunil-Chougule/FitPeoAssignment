@@ -1,0 +1,26 @@
+import java.awt.Desktop.Action;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Adjust_the_Slider {
+
+	public static void main(String[] args) 
+	{
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.get("https://fitpeo.com/revenue-calculator");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,350)", "");
+		WebElement ele=driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/div[2]/div/div/span[1]/span[3]"));
+		Actions move = new Actions(driver);
+		org.openqa.selenium.interactions.Action action = move.dragAndDropBy(ele, 100, 0).build();
+		((Actions) action).perform();
+	}
+
+}
