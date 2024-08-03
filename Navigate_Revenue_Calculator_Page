@@ -1,0 +1,15 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Navigate_Revenue_Calculator_Page {
+
+	public static void main(String[] args) 
+	{
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.get("https://www.fitpeo.com/");
+		driver.navigate().to("https://fitpeo.com/revenue-calculator");
+	}
+
+}
